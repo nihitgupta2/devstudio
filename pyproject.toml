@@ -5,23 +5,29 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "devstudio-mcp"
 version = "1.0.0"
-description = "AI-powered content creation MCP server"
+description = "Production-grade MCP server for screen recording, audio capture, and demo automation"
 authors = [{name = "DevStudio Team", email = "team@devstudio.com"}]
 license = "MIT"
 readme = "README.md"
 requires-python = ">=3.11"
+keywords = ["mcp", "recording", "screen-capture", "demo-automation", "video-recording"]
 classifiers = [
-    "Development Status :: 4 - Beta",
+    "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Multimedia :: Video :: Capture",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
 ]
 dependencies = [
+    # MCP Framework
     "fastmcp>=1.0.0",
+    # Web Framework
     "fastapi>=0.104.1",
     "pydantic>=2.5.0",
     "pydantic-settings>=2.1.0",
     "uvicorn[standard]>=0.24.0",
+    # Video & Audio Recording (Phase 1)
     "av>=13.0.0",  # PyAV with bundled FFmpeg - no system FFmpeg required
     "opencv-python-headless>=4.8.1",  # Required by pyscreeze (pyautogui dependency)
     "pillow>=10.1.0",
@@ -31,11 +37,9 @@ dependencies = [
     "pyautogui>=0.9.54",
     "screeninfo>=0.8.1",  # Multi-monitor detection
     "mss>=9.0.0",  # Fast multi-monitor screen capture
-    "openai>=1.3.0",
-    "anthropic>=0.7.0",
-    "google-generativeai>=0.3.0",
-    "selenium>=4.15.0",
+    # System Monitoring
     "psutil>=5.9.6",
+    # Utilities
     "python-multipart>=0.0.6",
     "aiofiles>=23.2.1",
     "structlog>=23.2.0",

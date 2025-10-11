@@ -1,19 +1,34 @@
+# Phase 1: Recording Infrastructure Dependencies
+
+# MCP Framework
 fastmcp>=1.0.0
+
+# Web Framework (for server management)
 fastapi>=0.104.1
 pydantic>=2.5.0
 pydantic-settings>=2.1.0
 uvicorn[standard]>=0.24.0
-ffmpeg-python>=0.2.0
-opencv-python>=4.8.1
-pillow>=10.1.0
-sounddevice>=0.4.6
-pyautogui>=0.9.54
-openai>=1.3.0
-anthropic>=0.7.0
-google-generativeai>=0.3.0
-selenium>=4.15.0
-psutil>=5.9.6
-python-multipart>=0.0.6
-aiofiles>=23.2.1
-structlog>=23.2.0
-rich>=13.7.0
+
+# Video & Audio Recording
+av>=13.0.0  # PyAV - includes bundled FFmpeg
+pillow>=10.1.0  # Image processing
+sounddevice>=0.4.6  # Audio recording
+soundfile>=0.12.1  # Audio file I/O
+mss>=9.0.0  # Multi-monitor screenshot capture
+pyautogui>=0.9.54  # Screen interaction
+screeninfo>=0.8.1  # Monitor detection
+numpy>=1.24.0  # Array operations for video frames
+
+# System Monitoring
+psutil>=5.9.6  # Process and system utilities
+
+# Utilities
+python-multipart>=0.0.6  # File uploads
+aiofiles>=23.2.1  # Async file I/O
+structlog>=23.2.0  # Structured logging
+rich>=13.7.0  # Terminal formatting
+
+# Phase 2/3: AI Dependencies (archived - see git branch: archive/phase-2-3-ai-features)
+# openai>=1.3.0
+# anthropic>=0.7.0
+# google-generativeai>=0.3.0

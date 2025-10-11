@@ -1,12 +1,12 @@
-# DevStudio MCP: AI-Powered Content Creation Server
+# DevStudio MCP: Production-Grade Screen Recording Server
 
 [![MCP Compatible](https://img.shields.io/badge/MCP-Compatible-blue)](https://modelcontextprotocol.io/)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![Production Ready](https://img.shields.io/badge/production-ready-green.svg)](https://github.com/your-username/devstudio-mcp)
-[![16 Tools](https://img.shields.io/badge/tools-16-brightgreen)](https://github.com/your-username/devstudio-mcp)
-[![Multi AI Provider](https://img.shields.io/badge/AI-OpenAI%20%7C%20Claude%20%7C%20Gemini-orange)](https://github.com/your-username/devstudio-mcp)
+[![6 Tools Active](https://img.shields.io/badge/tools-6%20active-brightgreen)](https://github.com/your-username/devstudio-mcp)
+[![10 Tools in Roadmap](https://img.shields.io/badge/roadmap-10%20tools-blue)](https://github.com/your-username/devstudio-mcp)
 
-**Production-grade MCP server for technical content creators** - Automates the entire workflow from recording to publishing with AI-powered post-production. Features **16 production-ready tools** across recording, processing, generation, and monetization.
+**Production-grade MCP server for screen recording and demo automation** - Phase 1 release featuring **6 professional recording tools** with multi-monitor support, audio/video muxing, and seamless integration for AI-driven demo workflows.
 
 ## 🚀 Quick Start
 
@@ -26,20 +26,6 @@ pip install -e .
 
 **Note:** FFmpeg is bundled with PyAV - no separate installation required! The package includes everything needed for professional video encoding.
 
-### Configuration
-
-1. Copy the environment template:
-```bash
-cp .env.example .env
-```
-
-2. Add your AI provider API keys:
-```env
-OPENAI_API_KEY=your_openai_key_here
-ANTHROPIC_API_KEY=your_anthropic_key_here
-GOOGLE_API_KEY=your_google_key_here
-```
-
 ### Running the Server
 
 ```bash
@@ -50,42 +36,30 @@ devstudio-mcp
 python -m devstudio_mcp.server
 ```
 
-## 🎯 Core Features
+## 🎯 Phase 1 Features
 
-### 📹 Recording & Capture
-- **Screen Recording**: H.264 video with PyAV (bundled FFmpeg - no installation required)
-- **Audio Recording**: Professional audio capture with real-time processing
-- **Audio/Video Muxing**: Combine separate streams into single MP4 files
-- **Terminal Monitoring**: Command history and output capture
+### 📹 Professional Recording Tools (6 Active Tools)
+- **Multi-Monitor Recording**: Capture any screen in multi-monitor setups
+- **Audio Capture**: Professional audio recording with real-time processing
+- **Audio/Video Muxing**: Automatic combination of separate streams into single MP4 files
 - **Screenshot Tools**: Single-shot screen capture with metadata
-
-### 🤖 AI Processing
-- **Multi-Provider Transcription**: OpenAI Whisper, Google Speech-to-Text
-- **Content Analysis**: Automatic topic detection and technical term extraction
-- **Code Extraction**: Smart code snippet identification and categorization
-- **Chapter Detection**: Intelligent content segmentation
-
-### 📝 Content Generation
-- **Blog Posts**: Technical blog posts with embedded code
-- **Documentation**: API docs, guides, and technical documentation
-- **Course Outlines**: Educational content structure and curriculum
-- **Summaries**: Configurable length summaries for any content
+- **Session Management**: Track and manage multiple recording sessions
+- **Terminal Monitoring**: Command history and output capture
 
 ## 📊 Tools Overview
 
-| Category | Tools | Description |
-|----------|-------|-------------|
-| **📹 Recording** | 6 tools | Screen recording, audio capture, screenshots, session management, multi-monitor support |
-| **🤖 Processing** | 3 tools | AI transcription (Whisper), content analysis, code extraction |
-| **📝 Generation** | 4 tools | Blog posts, documentation, summaries, course outlines |
-| **💳 Monetization** | 3 tools | License management, feature gating, usage tracking |
-| **Total** | **16 tools** | Complete content creation automation pipeline |
+| Tool | Description | Status |
+|------|-------------|--------|
+| `start_recording` | Start screen/audio/terminal recording session | ✅ Active |
+| `stop_recording` | Stop recording and get output files | ✅ Active |
+| `capture_screen` | Take single screenshot | ✅ Active |
+| `list_active_sessions` | List all active recording sessions | ✅ Active |
+| `mux_audio_video` | Combine separate audio and video files | ✅ Active |
+| `get_available_screens` | Get information about all monitors | ✅ Active |
 
 ## 🛠️ MCP Tools Reference
 
-DevStudio MCP provides **16 production-ready tools** across 4 categories: Recording, Processing, Generation, and Monetization.
-
-### 📹 Recording Tools (6 tools)
+### 📹 Recording Tools
 
 #### `start_recording`
 **Start a new recording session** with screen, audio, and/or terminal capture.
@@ -103,10 +77,11 @@ DevStudio MCP provides **16 production-ready tools** across 4 categories: Record
 ```
 - **Returns**: Session ID, status, output directory, recording types
 - **Use case**: Begin capturing screen demos, tutorials, or presentations
-- **Parameters**:
-  - `auto_mux` (default: true) - Automatically combine audio+video into single MP4
-  - `cleanup_source_files` (default: false) - Delete source files after muxing
-- **Note**: For audio-only recording, set `include_screen=false, include_audio=true`
+- **Features**:
+  - Multi-monitor support (select specific screen with `screen_id`)
+  - Auto-mux: Automatically combine audio+video into single MP4 (default: true)
+  - Cleanup: Delete source files after muxing (default: false)
+  - Audio-only: Set `include_screen=false, include_audio=true`
 
 #### `stop_recording`
 **Stop an active recording session** and retrieve output file paths.
@@ -117,7 +92,7 @@ DevStudio MCP provides **16 production-ready tools** across 4 categories: Record
 }
 ```
 - **Returns**: File paths for screen/audio/terminal/combined, session duration
-- **Use case**: End recording and get file locations for processing
+- **Use case**: End recording and get file locations
 - **Note**: When `auto_mux=true` and both screen+audio recorded, returns `combined.mp4` file
 
 #### `capture_screen`
@@ -130,6 +105,7 @@ DevStudio MCP provides **16 production-ready tools** across 4 categories: Record
 ```
 - **Returns**: Screenshot file path, dimensions, format, size
 - **Use case**: Quick captures for documentation or bug reports
+- **Features**: Multi-monitor support via `screen_id` parameter
 
 #### `list_active_sessions`
 **List all active recording sessions** and their status.
@@ -149,6 +125,7 @@ DevStudio MCP provides **16 production-ready tools** across 4 categories: Record
 ```
 - **Returns**: Muxed file path, input files, size
 - **Use case**: Merge separately recorded streams or fix sync issues
+- **Note**: Uses PyAV for professional H.264/AAC encoding
 
 #### `get_available_screens`
 **Get information about all available monitors** and their properties.
@@ -156,191 +133,277 @@ DevStudio MCP provides **16 production-ready tools** across 4 categories: Record
 - **Returns**: List of screens with ID, resolution, position, scale
 - **Use case**: Select specific monitor for recording in multi-screen setups
 
----
+## 🗺️ Roadmap - Development Phases
 
-### 🤖 Processing Tools (3 tools)
+### ✅ Phase 1: Recording Infrastructure (Current - v1.0.0)
+**Status**: Production-ready
+**Release**: Q4 2024
 
-#### `transcribe_audio`
-**Transcribe audio to text** using OpenAI Whisper, Google Speech-to-Text, or Anthropic.
-
-```json
-{
-    "file_path": "/path/to/audio.wav",
-    "provider": "openai",
-    "model": "whisper-1",
-    "language": "en"
-}
-```
-- **Returns**: Text, confidence, language, duration, timestamps
-- **Use case**: Convert recordings to searchable text for content creation
-
-#### `analyze_content`
-**Analyze content** for topics, technical terms, code snippets, and structure.
-
-```json
-{
-    "text": "Your content text...",
-    "analysis_type": "comprehensive",
-    "provider": "openai"
-}
-```
-- **Returns**: Summary, key topics, technical terms, code snippets, chapters, sentiment
-- **Use case**: Auto-generate metadata, tags, and structure for content
-
-#### `extract_code`
-**Extract and categorize code snippets** from text with language detection.
-
-```json
-{
-    "text": "Text with code blocks..."
-}
-```
-- **Returns**: Code snippets with language, total count, languages found
-- **Use case**: Pull code examples from transcripts for documentation
+- ✅ **6 production-ready recording tools**
+- ✅ Multi-monitor support with screen selection
+- ✅ Audio/video muxing (H.264 + AAC)
+- ✅ Professional screen capture
+- ✅ Session management
+- ✅ PyAV integration (bundled FFmpeg)
 
 ---
 
-### 📝 Generation Tools (4 tools)
+### 🚧 Phase 2: AI-Powered Processing (In Development)
+**Target**: Q1 2025
+**Git Branch**: `archive/phase-2-3-ai-features`
 
-#### `generate_blog_post`
-**Generate technical blog posts** from transcripts with embedded code.
+**Features:**
+- 🔜 **Audio transcription** using OpenAI Whisper
+- 🔜 **Multi-provider AI** (OpenAI, Anthropic, Google)
+- 🔜 **Content analysis** with topic detection
+- 🔜 **Code extraction** from recordings
+- 🔜 **Automatic chapter detection** with timestamps
 
-```json
-{
-    "title": "How to Build an MCP Server",
-    "transcript": "Transcript text...",
-    "code_snippets": [...],
-    "provider": "openai",
-    "style": "technical"
-}
-```
-- **Returns**: Formatted markdown blog post, word count, read time, metadata
-- **Use case**: Turn video tutorials into blog posts automatically
-
-#### `create_documentation`
-**Generate technical documentation** (API docs, guides, tutorials).
-
-```json
-{
-    "title": "API Documentation",
-    "content_data": {...},
-    "doc_type": "api",
-    "provider": "openai"
-}
-```
-- **Returns**: Structured documentation, word count, read time
-- **Use case**: Create API docs, feature guides, or technical references
-
-#### `generate_summary`
-**Create summaries** of any content in short, medium, or long formats.
-
-```json
-{
-    "text": "Content to summarize...",
-    "length": "medium",
-    "provider": "openai"
-}
-```
-- **Returns**: Summary text, word count, provider info
-- **Use case**: Generate descriptions for YouTube, social media, or newsletters
-
-#### `create_course_outline`
-**Generate course outlines** with modules, lessons, and learning objectives.
-
-```json
-{
-    "course_title": "Advanced Python Programming",
-    "learning_objectives": ["Master async/await", "Build REST APIs"],
-    "duration": "4 weeks",
-    "skill_level": "intermediate",
-    "provider": "openai"
-}
-```
-- **Returns**: Complete course structure, word count, read time
-- **Use case**: Plan educational content or training programs
+**Tools** (3):
+- `transcribe_audio` - Convert audio to text with timestamps
+- `analyze_content` - Extract topics, terms, and structure
+- `extract_code` - Identify and categorize code snippets
 
 ---
 
-### 💳 Monetization Tools (3 tools)
+### 📋 Phase 3: Content Generation (Planned)
+**Target**: Q2 2025
 
-#### `get_license_info`
-**Get current license tier** and subscription information.
+**Features:**
+- 📋 AI-generated **blog posts** from recordings
+- 📋 Automatic **documentation creation**
+- 📋 **Course outline generation**
+- 📋 Multi-format content export (Markdown, HTML, PDF)
+- 📋 YouTube descriptions with timestamps
 
-- **Returns**: Tier, features, usage stats, expiration, upgrade URL
-- **Use case**: Check subscription status and available features
+**Tools** (4):
+- `generate_blog_post` - Create technical blog posts
+- `create_documentation` - Generate API/feature docs
+- `generate_summary` - Configurable content summaries
+- `create_course_outline` - Educational content structure
 
-#### `check_feature_access`
-**Check if a specific feature** is available in current tier.
+---
 
-```json
-{
-    "feature": "ai_transcription"
-}
+### 💎 Phase 4: Monetization & Teams (Future)
+**Target**: Q3 2025
+
+**Features:**
+- 💎 **Tier-based feature access** (Free, Pro, Team, Enterprise)
+- 💎 **Usage tracking and analytics**
+- 💎 **License management system**
+- 💎 **Team collaboration features**
+- 💎 **Custom branding options**
+
+**Tools** (3):
+- `get_license_info` - Check subscription status
+- `check_feature_access` - Validate feature availability
+- `get_usage_stats` - Monitor usage and quotas
+
+---
+
+## 🔮 Vision: Autonomous Demo Recording Platform
+
+DevStudio MCP is evolving into a **comprehensive autonomous demo recording platform** that combines professional recording infrastructure with AI-driven browser automation.
+
+### 🌐 The Future: AI-Driven Demo Creation
+
+**Imagine:** An AI agent that can autonomously create complete product demos by controlling browsers, recording every interaction, and generating documentation - all orchestrated through MCP.
+
+### 🤖 AWS Nova Act Integration
+
+**Autonomous browser control for end-to-end demo creation**
+
+DevStudio MCP will integrate with AWS Nova Act agents to enable fully automated demo workflows:
+
+```mermaid
+graph LR
+    A[MCP: Start Recording] --> B[Nova Act: Browser Automation]
+    B --> C[Autonomous Actions]
+    C --> D[MCP: Stop Recording]
+    D --> E[Complete Demo Video]
 ```
-- **Returns**: Access status, current tier, upgrade URL if needed
-- **Use case**: Validate feature access before executing premium operations
 
-#### `get_usage_stats`
-**Get usage statistics** and remaining quotas.
+#### Example Workflow: E-commerce Demo
 
-- **Returns**: Current usage, limits, tier info
-- **Use case**: Monitor monthly usage and plan tier upgrades
+```python
+# Start recording via MCP
+mcp_client.call_tool("start_recording", {
+    "include_screen": true,
+    "include_audio": true,
+    "auto_mux": true
+})
 
-## 🏗️ Architecture
+# Launch Nova Act for browser automation
+from nova_act import NovaAct
+nova = NovaAct(api_key="key")
 
-DevStudio MCP follows production-grade MCP best practices with a clean registry pattern:
+# Agent performs complete workflow autonomously
+nova.act("Visit amazon.com, search for wireless headphones, \
+          filter by price under $100, add top rated to cart, \
+          proceed to checkout page")
+
+# Stop recording
+result = mcp_client.call_tool("stop_recording", {
+    "session_id": session_id
+})
+
+# Result: Professionally recorded e-commerce demo
+print(f"Demo recorded: {result['files']['combined']}")
+```
+
+### 🎯 Use Cases
+
+#### 1. **SaaS Product Demos**
+Automatically record multi-step user journeys:
+- Account creation and onboarding
+- Feature exploration workflows
+- Integration setup processes
+- Admin panel operations
+
+#### 2. **Tutorial Creation**
+Capture complex technical workflows:
+- Development environment setup
+- API integration examples
+- Debugging sessions
+- Code refactoring demonstrations
+
+#### 3. **QA & Testing**
+Record test scenarios with browser interaction:
+- Automated test execution capture
+- Bug reproduction recordings
+- Regression testing documentation
+- User acceptance test (UAT) videos
+
+#### 4. **Customer Onboarding**
+Create personalized demo content:
+- Product walkthroughs
+- Feature tutorials
+- Best practices guides
+- Troubleshooting demonstrations
+
+### 🔗 MCP Orchestration Architecture
 
 ```
-devstudio_mcp/
-├── server.py              # Main MCP server with capability negotiation
-├── registry.py            # Centralized tool/resource/prompt registry
-├── config.py              # Settings and environment configuration
-├── tools/                 # MCP tool implementations
-│   ├── recording.py       # PyAV H.264 recording, audio capture, muxing
-│   ├── processing.py      # AI transcription and analysis
-│   └── generation.py      # Content generation tools
-├── resources/             # MCP resource providers (Phase 2)
-├── prompts/              # Reusable prompt templates (Phase 2)
-└── utils/                # Utilities and error handling
-    ├── exceptions.py      # MCP-compliant error handling
-    └── logger.py         # Structured logging
+┌─────────────────────────────────────────────┐
+│  MCP DevStudio Recording Server (Phase 1)  │
+│  • start_recording                          │
+│  • capture_screen                           │
+│  • stop_recording                           │
+│  • multi-monitor support                    │
+└──────────────┬──────────────────────────────┘
+               │ Orchestrates
+               ↓
+┌─────────────────────────────────────────────┐
+│  AWS Nova Act Browser Automation            │
+│  • Navigate websites autonomously           │
+│  • Fill forms with natural language         │
+│  • Click & interact intelligently           │
+│  • Multi-step workflow execution            │
+└──────────────┬──────────────────────────────┘
+               │
+               ↓
+┌─────────────────────────────────────────────┐
+│  AI Processing Pipeline (Phase 2-3)         │
+│  • Transcribe narration                     │
+│  • Generate documentation                   │
+│  • Create blog posts                        │
+│  • Extract code snippets                    │
+└─────────────────────────────────────────────┘
+               │
+               ↓ Complete Demo Package
 ```
+
+### 🚀 User-Defined Environment Integration
+
+**Beyond browsers** - Record demos across any environment:
+
+- **Local Applications**: Desktop software demos
+- **Cloud Platforms**: AWS Console, Azure Portal, GCP
+- **Development Tools**: VS Code, IDEs, terminals
+- **Custom Systems**: Internal tools, proprietary software
+
+Nova Act agents can be configured to interact with virtually any web-based interface, making DevStudio MCP the **universal recording infrastructure** for AI-driven demo creation.
+
+### 🌟 Why This Matters
+
+**Traditional demo creation:**
+- ⏰ Hours of manual recording and editing
+- 🎬 Multiple takes to get it right
+- 📝 Manual documentation writing
+- 🔄 Constant updates needed
+
+**AI-driven with DevStudio MCP + Nova Act:**
+- ⚡ **Automated end-to-end** - From browser to video
+- 🎯 **Consistent quality** - Perfect execution every time
+- 📚 **Auto-documentation** - AI-generated content
+- 🔁 **One-click updates** - Re-record entire demos instantly
+
+---
 
 ## 📖 Usage Examples
 
-### Complete Workflow Example
+### Complete Recording Workflow
 
 ```python
-# 1. Start recording a tutorial
+# 1. Check available monitors
+screens = await get_available_screens()
+# Returns: [{"id": 0, "width": 1920, "height": 1080, ...}, ...]
+
+# 2. Start recording a tutorial on second monitor
 session = await start_recording({
     "include_screen": true,
     "include_audio": true,
-    "output_format": "mp4"
+    "screen_id": 1,  # Second monitor
+    "output_format": "mp4",
+    "auto_mux": true
 })
+# Returns: {"session_id": "...", "status": "recording"}
 
-# 2. Stop recording and get files
+# 3. Record your demo...
+
+# 4. Take a quick screenshot during recording
+screenshot = await capture_screen({"screen_id": 1})
+# Returns: {"file_path": "/path/to/screenshot.png", ...}
+
+# 5. Stop recording and get files
 result = await stop_recording({
     "session_id": session["session_id"]
 })
+# Returns: {"files": {"combined": "/path/to/combined.mp4"}, "duration": 120.5}
+```
 
-# 3. Transcribe the audio
-transcript = await transcribe_audio({
-    "file_path": result["files"]["audio"],
-    "provider": "openai"
+### Multi-Monitor Recording
+
+```python
+# Get all available screens
+screens = await get_available_screens()
+print(f"Found {len(screens)} monitors")
+
+# Record specific monitor
+session = await start_recording({
+    "include_screen": true,
+    "screen_id": 2,  # Third monitor
+    "include_audio": true
+})
+```
+
+### Audio/Video Muxing
+
+```python
+# Record audio and video separately
+session = await start_recording({
+    "include_screen": true,
+    "include_audio": true,
+    "auto_mux": false  # Don't auto-combine
 })
 
-# 4. Analyze content for structure
-analysis = await analyze_content({
-    "text": transcript["text"],
-    "analysis_type": "comprehensive"
-})
+result = await stop_recording({"session_id": session["session_id"]})
 
-# 5. Generate blog post
-blog_post = await generate_blog_post({
-    "title": "Building Amazing MCP Servers",
-    "transcript": transcript["text"],
-    "code_snippets": analysis["code_snippets"],
-    "style": "technical"
+# Manually mux later with custom settings
+muxed = await mux_audio_video({
+    "video_path": result["files"]["screen"],
+    "audio_path": result["files"]["audio"],
+    "output_path": "/custom/path/final_demo.mp4"
 })
 ```
 
@@ -348,45 +411,69 @@ blog_post = await generate_blog_post({
 
 ### Environment Variables
 
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `OPENAI_API_KEY` | OpenAI API key for Whisper transcription | Optional |
-| `ANTHROPIC_API_KEY` | Anthropic API key for Claude analysis | Optional |
-| `GOOGLE_API_KEY` | Google API key for Gemini processing | Optional |
-| `LOG_LEVEL` | Logging level (DEBUG, INFO, WARNING, ERROR) | No |
-| `OUTPUT_DIR` | Default output directory for recordings | No |
+| Variable | Description | Required | Default |
+|----------|-------------|----------|---------|
+| `RECORDING_OUTPUT_DIR` | Output directory for recordings | No | `~/DevStudio/recordings` |
+| `MAX_RECORDING_DURATION` | Max recording length (seconds) | No | 3600 (1 hour) |
+| `RECORDING_QUALITY` | Quality setting (low, medium, high) | No | medium |
+| `RECORDING_FPS` | Frames per second | No | 30 |
+| `LOG_LEVEL` | Logging level (DEBUG, INFO, WARNING, ERROR) | No | INFO |
 
-### Settings
+### Default Recording Settings
 
 ```python
-# devstudio_mcp/config.py
-class Settings:
-    openai_api_key: Optional[str] = None
-    anthropic_api_key: Optional[str] = None
-    google_api_key: Optional[str] = None
-    log_level: str = "INFO"
-    output_dir: Path = Path("./recordings")
+# Default configuration
+recording:
+  output_dir: ~/DevStudio/recordings
+  max_duration: 3600  # 1 hour
+  quality: medium
+  fps: 30
+  audio_enabled: true
+  auto_mux: true
 ```
 
 ## 🧪 Testing
 
 ```bash
-# Run tests
+# Run all tests
 uv run pytest
 
 # Run with coverage
 uv run pytest --cov=devstudio_mcp
 
-# Test specific module
+# Test recording tools specifically
 uv run pytest tests/test_recording.py -v
 ```
+
+## 🏗️ Architecture
+
+```
+devstudio_mcp/
+├── server.py              # Main MCP server (Phase 1)
+├── registry.py            # Tool registration (6 tools active)
+├── config.py              # Configuration management
+├── tools/
+│   └── recording.py       # 6 recording tools (ACTIVE)
+├── resources/
+│   └── media_manager.py   # Media file management
+└── utils/
+    ├── exceptions.py      # Error handling
+    └── logger.py         # Structured logging
+```
+
+**Archived for Phase 2/3** (preserved in git branch `archive/phase-2-3-ai-features`):
+- `tools/processing.py` - AI transcription and analysis (3 tools)
+- `tools/generation.py` - Content generation (4 tools)
+- `monetization.py` - License management (3 tools)
+- `prompts/` - AI prompt templates
+- `resources/session_data.py` - Session resources
 
 ## 🤝 Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
 3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
+4. Push to the branch (`git push origin feature/amazing feature`)
 5. Open a Pull Request
 
 ## 📄 License
@@ -398,6 +485,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Model Context Protocol](https://modelcontextprotocol.io/) - The foundation protocol
 - [FastMCP](https://github.com/jlowin/fastmcp) - Python MCP framework
 - [PyAV](https://github.com/PyAV-Org/PyAV) - FFmpeg bindings with bundled binaries
+- [AWS Nova Act](https://aws.amazon.com/bedrock/nova/) - Browser automation SDK
 - [mcpcat.io](https://mcpcat.io/) - MCP best practices and guidelines
 
 ## 📞 Support
@@ -405,7 +493,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - 📧 Email: support@devstudio.com
 - 💬 Discord: [DevStudio Community](https://discord.gg/devstudio)
 - 🐛 Issues: [GitHub Issues](https://github.com/your-username/devstudio-mcp/issues)
+- 📚 Docs: [Documentation](https://docs.devstudio.com)
 
 ---
 
-**Built with ❤️ for the developer community**
+**Built with ❤️ for developers creating amazing demos and tutorials**
+
+*Phase 2/3 features (AI processing, content generation, monetization) are actively under development and preserved in git branch: `archive/phase-2-3-ai-features`*

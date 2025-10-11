@@ -58,36 +58,6 @@ class RecordingConfig(BaseModel):
         return v
 
 
-class AIConfig(BaseModel):
-    """AI service configuration settings."""
-
-    openai_api_key: Optional[str] = None
-    anthropic_api_key: Optional[str] = None
-    google_api_key: Optional[str] = None
-    default_provider: Literal["openai", "anthropic", "google"] = "openai"
-    timeout: int = Field(30, ge=5, le=300)  # 5 seconds to 5 minutes
-    max_retries: int = Field(3, ge=1, le=10)
-
-    @field_validator("default_provider")
-    @classmethod
-    def validate_default_provider(cls, v: str, info) -> str:
-        """Validate that default provider has API key."""
-        # Get the values from the model instance
-        values = info.data if info.data else {}
-        key_mapping = {
-            "openai": values.get("openai_api_key"),
-            "anthropic": values.get("anthropic_api_key"),
-            "google": values.get("google_api_key"),
-        }
-
-        if not key_mapping.get(v):
-            available_providers = [k for k, val in key_mapping.items() if val]
-            if available_providers:
-                return available_providers[0]  # Use first available
-            raise ValueError(f"No API key configured for provider: {v}")
-        return v
-
-
 class StorageConfig(BaseModel):
     """Storage configuration settings."""
 
@@ -130,13 +100,14 @@ class LoggingConfig(BaseModel):
 
 
 class Settings(BaseSettings):
-    """Main application settings."""
+    """Main application settings (Phase 1: Recording Only)."""
 
     server: ServerConfig = Field(default_factory=ServerConfig)
     recording: RecordingConfig = Field(default_factory=RecordingConfig)
-    ai: AIConfig = Field(default_factory=AIConfig)
     storage: StorageConfig = Field(default_factory=StorageConfig)
     logging: LoggingConfig = Field(default_factory=LoggingConfig)
+
+    # Phase 2/3: AI configuration archived (in git branch: archive/phase-2-3-ai-features)
 
     class Config:
         """Pydantic configuration."""
@@ -148,7 +119,7 @@ class Settings(BaseSettings):
 
     @classmethod
     def from_env(cls) -> "Settings":
-        """Create settings from environment variables."""
+        """Create settings from environment variables (Phase 1: Recording Only)."""
         return cls(
             server=ServerConfig(
                 name=os.getenv("SERVER_NAME", "devstudio-mcp"),
@@ -164,14 +135,6 @@ class Settings(BaseSettings):
                 quality=os.getenv("RECORDING_QUALITY", "medium"),
                 fps=int(os.getenv("RECORDING_FPS", "30")),
                 audio_enabled=os.getenv("RECORDING_AUDIO", "true").lower() == "true",
-            ),
-            ai=AIConfig(
-                openai_api_key=os.getenv("OPENAI_API_KEY"),
-                anthropic_api_key=os.getenv("ANTHROPIC_API_KEY"),
-                google_api_key=os.getenv("GOOGLE_API_KEY"),
-                default_provider=os.getenv("AI_DEFAULT_PROVIDER", "google"),
-                timeout=int(os.getenv("AI_TIMEOUT", "30")),
-                max_retries=int(os.getenv("AI_MAX_RETRIES", "3")),
             ),
             storage=StorageConfig(
                 type=os.getenv("STORAGE_TYPE", "local"),
@@ -190,18 +153,8 @@ class Settings(BaseSettings):
         )
 
     def validate_configuration(self) -> None:
-        """Validate the complete configuration."""
-        # Check AI providers
-        providers_with_keys = []
-        if self.ai.openai_api_key:
-            providers_with_keys.append("openai")
-        if self.ai.anthropic_api_key:
-            providers_with_keys.append("anthropic")
-        if self.ai.google_api_key:
-            providers_with_keys.append("google")
-
-        if not providers_with_keys:
-            raise ValueError("At least one AI provider API key must be configured")
+        """Validate the complete configuration (Phase 1: Recording Only)."""
+        # Phase 1: No AI provider validation needed (recording only)
 
         # Validate storage configuration
         if self.storage.type != "local":
