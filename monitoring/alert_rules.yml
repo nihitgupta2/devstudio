@@ -1,0 +1,80 @@
+# Prometheus alert rules for DevStudio MCP Server
+groups:
+  - name: devstudio_mcp_alerts
+    rules:
+      # High memory usage
+      - alert: HighMemoryUsage
+        expr: (process_resident_memory_bytes / 1024 / 1024) > 512
+        for: 5m
+        labels:
+          severity: warning
+          service: devstudio-mcp
+        annotations:
+          summary: "DevStudio MCP server memory usage is high"
+          description: "Memory usage is {{ $value }}MB, which is above the 512MB threshold"
+
+      # High CPU usage
+      - alert: HighCPUUsage
+        expr: rate(process_cpu_seconds_total[5m]) * 100 > 80
+        for: 5m
+        labels:
+          severity: warning
+          service: devstudio-mcp
+        annotations:
+          summary: "DevStudio MCP server CPU usage is high"
+          description: "CPU usage is {{ $value }}%, which is above the 80% threshold"
+
+      # Service down
+      - alert: ServiceDown
+        expr: up{job="devstudio-mcp"} == 0
+        for: 1m
+        labels:
+          severity: critical
+          service: devstudio-mcp
+        annotations:
+          summary: "DevStudio MCP server is down"
+          description: "The DevStudio MCP server has been down for more than 1 minute"
+
+      # High error rate
+      - alert: HighErrorRate
+        expr: rate(http_requests_total{status=~"5.."}[5m]) / rate(http_requests_total[5m]) > 0.1
+        for: 2m
+        labels:
+          severity: warning
+          service: devstudio-mcp
+        annotations:
+          summary: "High error rate in DevStudio MCP server"
+          description: "Error rate is {{ $value | humanizePercentage }}, which is above 10%"
+
+      # Long recording sessions
+      - alert: LongRecordingSession
+        expr: recording_duration_seconds > 3600
+        for: 1m
+        labels:
+          severity: info
+          service: devstudio-mcp
+        annotations:
+          summary: "Long recording session detected"
+          description: "Recording session has been active for {{ $value | humanizeDuration }}"
+
+      # Redis connection issues
+      - alert: RedisDown
+        expr: up{job="redis"} == 0
+        for: 1m
+        labels:
+          severity: critical
+          service: redis
+        annotations:
+          summary: "Redis server is down"
+          description: "Redis server has been down for more than 1 minute"
+
+      # Disk space usage
+      - alert: HighDiskUsage
+        expr: (1 - (node_filesystem_avail_bytes{fstype!="tmpfs"} / node_filesystem_size_bytes{fstype!="tmpfs"})) * 100 > 85
+        for: 5m
+        labels:
+          severity: warning
+          service: system
+        annotations:
+          summary: "High disk usage"
+          description: "Disk usage is {{ $value }}%, which is above 85%"
