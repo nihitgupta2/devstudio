@@ -1,4 +1,16 @@
 """
+DevStudio MCP Custom Exceptions
+Copyright (C) 2024 Nihit Gupta
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+For commercial licensing options, contact: nihitgupta.ng@outlook.com
+
+---
+
 Custom exceptions for DevStudio MCP server following mcpcat.io best practices.
 
 Implements three-tier error model: Transport, Protocol, and Application level errors

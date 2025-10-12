@@ -478,7 +478,51 @@ devstudio_mcp/
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+DevStudio MCP is dual-licensed under **AGPL v3** (open source) and **Commercial License** (proprietary use).
+
+### Open Source License (AGPL v3)
+
+**Free for:**
+- ✅ Personal projects and education
+- ✅ Open source projects
+- ✅ Internal company tools
+- ✅ Research and non-commercial use
+
+**Requirements:**
+- ⚠️ If you modify this software, you must release your modifications as AGPL v3
+- ⚠️ If you use this in a network service (SaaS), you must open source your entire application
+
+Full AGPL v3 license: [LICENSE](LICENSE) | https://www.gnu.org/licenses/agpl-3.0.html
+
+### Commercial License
+
+**Required for:**
+- 💼 Commercial SaaS offerings (proprietary)
+- 💼 Selling software that includes DevStudio MCP
+- 💼 Keeping your modifications proprietary
+- 💼 Enterprise deployments without open sourcing
+
+**Benefits:**
+- ✅ No AGPL copyleft requirements
+- ✅ Keep your code proprietary
+- ✅ Priority support and updates
+- ✅ Commercial use indemnification
+- ✅ Custom licensing terms available
+
+**Pricing:**
+- **Startup**: < $1M revenue - Contact for pricing
+- **Professional**: $1M-$10M revenue - Contact for pricing
+- **Enterprise**: > $10M revenue - Custom terms
+
+📧 **Contact for commercial licensing:** nihitgupta.ng@outlook.com
+
+Full details: [LICENSE-COMMERCIAL.txt](LICENSE-COMMERCIAL.txt)
+
+---
+
+### Why Dual License?
+
+We believe in open source while building a sustainable business. AGPL v3 ensures the community benefits from improvements, while commercial licensing allows businesses to use DevStudio MCP in proprietary applications.
 
 ## 🙏 Acknowledgments
 
@@ -490,10 +534,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- 📧 Email: support@devstudio.com
-- 💬 Discord: [DevStudio Community](https://discord.gg/devstudio)
-- 🐛 Issues: [GitHub Issues](https://github.com/your-username/devstudio-mcp/issues)
-- 📚 Docs: [Documentation](https://docs.devstudio.com)
+- 📧 Email: nihitgupta.ng@outlook.com
+- 🐛 Issues: [GitHub Issues](https://github.com/nihitgupta/DevStudio-MCP/issues)
+- 💼 Commercial Licensing: nihitgupta.ng@outlook.com
 
 ---
 

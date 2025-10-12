@@ -1,0 +1,85 @@
+DEVSTUDIO MCP - DUAL LICENSE
+
+Copyright (C) 2024 Nihit Gupta
+
+DevStudio MCP is dual-licensed under the following terms:
+
+================================================================================
+1. OPEN SOURCE LICENSE - GNU AFFERO GENERAL PUBLIC LICENSE v3 (AGPL-3.0)
+================================================================================
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU Affero General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option) any
+later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more
+details.
+
+You should have received a copy of the GNU Affero General Public License along
+with this program. If not, see <https://www.gnu.org/licenses/>.
+
+AGPL v3 SUMMARY:
+- ✅ Free for personal use, education, and open source projects
+- ✅ You can modify and redistribute the software
+- ⚠️ If you use this in a network service (SaaS), you MUST release your
+     entire application source code under AGPL v3
+- ⚠️ All modifications must be released under AGPL v3
+
+Full AGPL v3 license text: See LICENSE-AGPL.txt or visit:
+https://www.gnu.org/licenses/agpl-3.0.html
+
+================================================================================
+2. COMMERCIAL LICENSE
+================================================================================
+
+If you want to use DevStudio MCP in a commercial application or SaaS offering
+WITHOUT the AGPL v3 copyleft requirements (i.e., keep your code proprietary),
+you must obtain a commercial license.
+
+COMMERCIAL LICENSE BENEFITS:
+- ✅ No requirement to open source your application
+- ✅ Keep modifications proprietary
+- ✅ Use in commercial SaaS offerings
+- ✅ Priority support and updates
+- ✅ Commercial use indemnification
+
+PRICING:
+Contact nihitgupta.ng@outlook.com for commercial licensing options.
+
+Full commercial license terms: See LICENSE-COMMERCIAL.txt
+
+================================================================================
+CHOOSING YOUR LICENSE
+================================================================================
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ USE CASE                          │ LICENSE REQUIRED                    │
+├───────────────────────────────────┼─────────────────────────────────────┤
+│ Personal project                  │ AGPL v3 (free)                      │
+│ Open source project               │ AGPL v3 (free)                      │
+│ Internal company tool             │ AGPL v3 (free)                      │
+│ Educational/research              │ AGPL v3 (free)                      │
+│ Commercial SaaS (open source)     │ AGPL v3 (free, must open source)    │
+│ Commercial SaaS (proprietary)     │ COMMERCIAL LICENSE (paid)           │
+│ Selling software with DevStudio   │ COMMERCIAL LICENSE (paid)           │
+│ Proprietary modifications         │ COMMERCIAL LICENSE (paid)           │
+└───────────────────────────────────┴─────────────────────────────────────┘
+
+================================================================================
+CONTACT
+================================================================================
+
+For questions about licensing:
+Email: nihitgupta.ng@outlook.com
+Subject: DevStudio MCP Licensing
+
+For commercial license inquiries, please include:
+- Your company name and size
+- Intended use case
+- Estimated user base
+- Any specific requirements
+
+Project Website: https://github.com/your-username/DevStudio-MCP

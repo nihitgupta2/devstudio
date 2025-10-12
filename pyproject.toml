@@ -6,11 +6,11 @@ build-backend = "setuptools.build_meta"
 name = "devstudio-mcp"
 version = "1.0.0"
 description = "Production-grade MCP server for screen recording, audio capture, and demo automation"
-authors = [{name = "DevStudio Team", email = "team@devstudio.com"}]
-license = "MIT"
+authors = [{name = "Nihit Gupta", email = "nihitgupta.ng@outlook.com"}]
+license = "AGPL-3.0-or-later"
 readme = "README.md"
 requires-python = ">=3.11"
-keywords = ["mcp", "recording", "screen-capture", "demo-automation", "video-recording"]
+keywords = ["mcp", "recording", "screen-capture", "demo-automation", "video-recording", "agpl"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",

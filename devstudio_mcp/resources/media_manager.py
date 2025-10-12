@@ -1,5 +1,10 @@
 """
-Media management resources for DevStudio MCP server.
+DevStudio MCP Media Management Resources
+Copyright (C) 2024 Nihit Gupta
+Licensed under AGPL-3.0-or-later
+For commercial licensing: nihitgupta.ng@outlook.com
+
+---
 
 Provides access to recorded media files and session data.
 """

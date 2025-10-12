@@ -1,0 +1,62 @@
+DEVSTUDIO MCP COMMERCIAL LICENSE AGREEMENT
+
+Copyright (C) 2024 Nihit Gupta
+
+This Commercial License Agreement ("Agreement") allows you to use DevStudio MCP
+in commercial applications without the copyleft requirements of the AGPL v3 license.
+
+GRANT OF LICENSE
+
+Subject to the terms of this Agreement and payment of applicable fees, Nihit Gupta
+grants you a non-exclusive, worldwide license to:
+
+1. Use DevStudio MCP in commercial applications
+2. Modify DevStudio MCP for internal use
+3. Keep your modifications proprietary
+4. Distribute your application without releasing source code
+5. Offer DevStudio MCP as part of a commercial SaaS offering
+
+WHAT YOU CANNOT DO
+
+1. Redistribute DevStudio MCP source code as a competing product
+2. Remove copyright notices or license information
+3. Sub-license DevStudio MCP to third parties
+
+COMMERCIAL LICENSE TIERS
+
+Contact nihitgupta.ng@outlook.com for current pricing:
+
+- STARTUP LICENSE: For companies with < $1M annual revenue
+- PROFESSIONAL LICENSE: For companies with $1M-$10M annual revenue
+- ENTERPRISE LICENSE: For companies with > $10M annual revenue
+- CUSTOM LICENSE: Contact for bespoke licensing arrangements
+
+SUPPORT AND UPDATES
+
+Commercial licenses include:
+- Priority email support
+- Access to private GitHub repository
+- Early access to new features
+- Security patches and updates
+- Commercial use indemnification
+
+WARRANTY DISCLAIMER
+
+THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+
+LIMITATION OF LIABILITY
+
+IN NO EVENT SHALL NIHIT GUPTA BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+CONTACT
+
+For commercial licensing inquiries:
+Email: nihitgupta.ng@outlook.com
+Subject: DevStudio MCP Commercial License
+
+For pricing, custom licensing, or enterprise agreements, please contact us directly.

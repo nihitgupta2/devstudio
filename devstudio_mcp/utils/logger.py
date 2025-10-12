@@ -1,4 +1,9 @@
-"""Structured logging setup for DevStudio MCP server."""
+"""
+DevStudio MCP Structured Logging
+Copyright (C) 2024 Nihit Gupta
+Licensed under AGPL-3.0-or-later
+For commercial licensing: nihitgupta.ng@outlook.com
+"""
 
 import logging
 import logging.handlers
