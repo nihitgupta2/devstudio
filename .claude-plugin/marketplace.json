@@ -1,0 +1,58 @@
+{
+  "name": "devstudio-mcp-marketplace",
+  "owner": {
+    "name": "Nihit Gupta",
+    "email": "nihitgupta.ng@outlook.com"
+  },
+  "plugins": [
+    {
+      "name": "devstudio-mcp",
+      "source": {
+        "type": "github",
+        "owner": "nihitgupta2",
+        "repo": "DevStudio"
+      },
+      "description": "Production-grade MCP server for screen recording and demo automation. Features 6 professional recording tools with multi-monitor support, audio/video muxing (H.264+AAC), and seamless integration for AI-driven demo workflows.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Nihit Gupta",
+        "email": "nihitgupta.ng@outlook.com"
+      },
+      "homepage": "https://github.com/nihitgupta2/DevStudio",
+      "repository": "https://github.com/nihitgupta2/DevStudio",
+      "license": "AGPL-3.0-or-later",
+      "keywords": [
+        "mcp",
+        "screen-recording",
+        "demo-automation",
+        "video-recording",
+        "audio-capture",
+        "multi-monitor",
+        "content-creation",
+        "developer-tools"
+      ],
+      "category": "productivity",
+      "tags": [
+        "recording",
+        "video",
+        "audio",
+        "demo",
+        "tutorial",
+        "content-creation"
+      ],
+      "mcpServers": [
+        {
+          "name": "devstudio",
+          "command": "python",
+          "args": [
+            "-m",
+            "devstudio_mcp.server"
+          ],
+          "env": {
+            "RECORDING_OUTPUT_DIR": "~/DevStudio/recordings"
+          }
+        }
+      ]
+    }
+  ]
+}
