@@ -1,12 +1,22 @@
+<div align="center">
+
+<img src="assets/logo.png" alt="DevStudio MCP Logo" width="400"/>
+
 # DevStudio MCP: Production-Grade Screen Recording Server
 
 [![MCP Compatible](https://img.shields.io/badge/MCP-Compatible-blue)](https://modelcontextprotocol.io/)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
-[![Production Ready](https://img.shields.io/badge/production-ready-green.svg)](https://github.com/your-username/devstudio-mcp)
-[![6 Tools Active](https://img.shields.io/badge/tools-6%20active-brightgreen)](https://github.com/your-username/devstudio-mcp)
-[![10 Tools in Roadmap](https://img.shields.io/badge/roadmap-10%20tools-blue)](https://github.com/your-username/devstudio-mcp)
+[![Production Ready](https://img.shields.io/badge/production-ready-green.svg)](https://github.com/nihitgupta2/DevStudio)
+[![6 Tools Active](https://img.shields.io/badge/tools-6%20active-brightgreen)](https://github.com/nihitgupta2/DevStudio)
+[![10 Tools in Roadmap](https://img.shields.io/badge/roadmap-10%20tools-blue)](https://github.com/nihitgupta2/DevStudio)
+[![AGPL License](https://img.shields.io/badge/license-AGPL--3.0-blue.svg)](LICENSE)
 
 **Production-grade MCP server for screen recording and demo automation** - Phase 1 release featuring **6 professional recording tools** with multi-monitor support, audio/video muxing, and seamless integration for AI-driven demo workflows.
+
+<!-- PyPI Metadata -->
+mcp-name: devstudio
+
+</div>
 
 ## 🚀 Quick Start
 
