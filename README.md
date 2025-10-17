@@ -22,29 +22,44 @@ mcp-name: devstudio
 
 ### Installation
 
+**Method 1: uvx (Recommended - Zero Install)**
+
+```bash
+# Run directly without installation
+uvx devstudio-mcp
+```
+
+Perfect for AI agents and quick testing - no setup required!
+
+**Method 2: PyPI Installation**
+
+```bash
+# Install from PyPI
+pip install devstudio-mcp
+
+# Run the server
+devstudio-mcp
+# Or as module: python -m devstudio_mcp.server
+```
+
+**Method 3: Development Installation**
+
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/devstudio-mcp.git
-cd devstudio-mcp
+git clone https://github.com/nihitgupta2/DevStudio.git
+cd DevStudio
 
 # Install with uv (recommended)
 uv sync
 
 # Or with pip
 pip install -e .
+
+# Run the server
+devstudio-mcp
 ```
 
 **Note:** FFmpeg is bundled with PyAV - no separate installation required! The package includes everything needed for professional video encoding.
-
-### Running the Server
-
-```bash
-# Run the MCP server
-devstudio-mcp
-
-# Or with Python
-python -m devstudio_mcp.server
-```
 
 ## 🎯 Phase 1 Features
 
