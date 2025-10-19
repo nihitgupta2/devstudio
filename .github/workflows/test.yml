@@ -47,5 +47,7 @@ jobs:
         run: uv build
 
       - name: Test uvx installation
-        run: uvx --from dist/*.whl devstudio-mcp --help
+        run: |
+          WHL_FILE=$(ls dist/*.whl | head -n 1)
+          uvx --from "$WHL_FILE" devstudio-mcp --help
         shell: bash

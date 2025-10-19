@@ -125,7 +125,10 @@ class Settings(BaseSettings):
     storage: StorageConfig = Field(default_factory=StorageConfig)
     logging: LoggingConfig = Field(default_factory=LoggingConfig)
 
-    # Phase 2/3: AI configuration archived (in git branch: archive/phase-2-3-ai-features)
+    # Phase 2/3: AI configuration (optional for future features)
+    openai_api_key: Optional[str] = None
+    anthropic_api_key: Optional[str] = None
+    google_api_key: Optional[str] = None
 
     class Config:
         """Pydantic configuration."""

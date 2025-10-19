@@ -131,6 +131,9 @@ class RecordingManager:
 
             return session
 
+        except ValidationError:
+            # Re-raise validation errors without wrapping
+            raise
         except Exception as e:
             if session.id in self.active_sessions:
                 del self.active_sessions[session.id]
