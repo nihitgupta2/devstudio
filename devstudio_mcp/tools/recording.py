@@ -35,7 +35,6 @@ from typing import Annotated, Any, Dict, List, Optional
 import av
 import mss
 import numpy as np
-import pyautogui
 import sounddevice as sd
 import soundfile as sf
 from fastmcp import FastMCP
@@ -156,6 +155,7 @@ class RecordingManager:
                 screen_region = (screen['x'], screen['y'], screen['width'], screen['height'])
             else:
                 # Use primary screen
+                import pyautogui  # Lazy import to avoid display requirement on headless systems
                 screen_width, screen_height = pyautogui.size()
                 screen_region = None  # None = full screen (primary)
 
@@ -649,6 +649,7 @@ class RecordingManager:
             self.logger.error(f"Failed to detect screens: {e}")
             # Fallback to pyautogui size if screeninfo fails
             try:
+                import pyautogui  # Lazy import to avoid display requirement on headless systems
                 width, height = pyautogui.size()
                 return [{
                     "id": 0,
