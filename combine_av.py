@@ -19,7 +19,7 @@ import sys
 from pathlib import Path
 
 
-def find_recording_files(recordings_dir: str = r"C:\Users\hp\DevStudio\recordings") -> tuple[Path, Path]:
+def find_recording_files(recordings_dir: str = r"C:\Users\hp\devstudio\recordings") -> tuple[Path, Path]:
     """Find the most recent screen and audio recording files."""
     recordings_path = Path(recordings_dir)
 

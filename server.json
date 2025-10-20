@@ -3,10 +3,10 @@
   "name": "io.github.nihitgupta2/devstudio",
   "description": "Production-grade MCP server for professional screen recording and demo automation. Features 6 recording tools with multi-monitor support, H.264+AAC muxing, and AI-driven workflow integration.",
   "version": "1.0.0",
-  "homepage": "https://github.com/nihitgupta2/DevStudio",
+  "homepage": "https://github.com/nihitgupta2/devstudio",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nihitgupta2/DevStudio.git"
+    "url": "https://github.com/nihitgupta2/devstudio.git"
   },
   "author": {
     "name": "Nihit Gupta",
