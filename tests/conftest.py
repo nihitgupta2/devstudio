@@ -6,12 +6,10 @@ import asyncio
 import tempfile
 import pytest
 from pathlib import Path
-from unittest.mock import AsyncMock, MagicMock
+from unittest.mock import MagicMock
 
 from devstudio_mcp.config import Settings
 from devstudio_mcp.tools.recording import RecordingManager
-from devstudio_mcp.tools.processing import ProcessingManager
-from devstudio_mcp.tools.generation import GenerationManager
 
 
 @pytest.fixture(scope="session")
@@ -32,76 +30,13 @@ def temp_dir():
 @pytest.fixture
 def test_settings(temp_dir):
     """Create test settings with temporary directories."""
-    return Settings(
-        openai_api_key="test-openai-key",
-        anthropic_api_key="test-anthropic-key",
-        google_api_key="test-google-key",
-        log_level="DEBUG"
-    )
+    return Settings(log_level="DEBUG")
 
 
 @pytest.fixture
 def recording_manager(test_settings):
     """Create a RecordingManager instance for testing."""
     return RecordingManager(test_settings)
-
-
-@pytest.fixture
-def processing_manager(test_settings):
-    """Create a ProcessingManager instance for testing."""
-    manager = ProcessingManager(test_settings)
-    # Mock the AI clients to avoid actual API calls
-    manager.openai_client = AsyncMock()
-    manager.anthropic_client = AsyncMock()
-    manager.gemini_client = AsyncMock()
-    return manager
-
-
-@pytest.fixture
-def generation_manager(test_settings):
-    """Create a GenerationManager instance for testing."""
-    manager = GenerationManager(test_settings)
-    # Mock the AI clients to avoid actual API calls
-    manager.openai_client = AsyncMock()
-    manager.anthropic_client = AsyncMock()
-    manager.gemini_client = AsyncMock()
-    return manager
-
-
-@pytest.fixture
-def sample_transcript():
-    """Sample transcript text for testing."""
-    return """
-    Hello everyone, welcome to this tutorial on Python programming.
-    Today we're going to learn about functions and how to create them.
-    Let me show you a simple example:
-
-    def greet(name):
-        return f"Hello, {name}!"
-
-    This function takes a name parameter and returns a greeting.
-    We can call it like this: greet("World") which returns "Hello, World!"
-    """
-
-
-@pytest.fixture
-def sample_audio_file(temp_dir):
-    """Create a sample audio file for testing."""
-    import soundfile as sf
-    import numpy as np
-
-    # Create a simple sine wave
-    sample_rate = 44100
-    duration = 1  # 1 second
-    frequency = 440  # A4 note
-
-    t = np.linspace(0, duration, int(sample_rate * duration))
-    audio_data = 0.5 * np.sin(2 * np.pi * frequency * t)
-
-    audio_file = temp_dir / "test_audio.wav"
-    sf.write(str(audio_file), audio_data, sample_rate)
-
-    return audio_file
 
 
 @pytest.fixture

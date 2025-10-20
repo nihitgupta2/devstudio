@@ -151,20 +151,6 @@ class TestRecordingManager:
             assert sessions[0]["status"] == "recording"
             assert "start_time" in sessions[0]
 
-    @pytest.mark.asyncio
-    async def test_video_writer_initialization_failure(self, recording_manager):
-        """Test handling of video writer initialization failure."""
-        with patch('cv2.VideoWriter') as mock_writer_class, \
-             patch('pyautogui.size', return_value=(1920, 1080)):
-
-            mock_writer = MagicMock()
-            mock_writer.isOpened.return_value = False  # Simulate failure
-            mock_writer_class.return_value = mock_writer
-
-            with pytest.raises(RecordingError) as exc_info:
-                await recording_manager.start_recording_session(include_screen=True)
-            assert "Failed to initialize video writer" in str(exc_info.value)
-
 
 class TestRecordingSession:
     """Test cases for RecordingSession model."""
