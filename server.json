@@ -1,0 +1,66 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.schema.json",
+  "name": "io.github.nihitgupta2/devstudio",
+  "description": "Production-grade MCP server for professional screen recording and demo automation. Features 6 recording tools with multi-monitor support, H.264+AAC muxing, and AI-driven workflow integration.",
+  "version": "1.0.0",
+  "homepage": "https://github.com/nihitgupta2/DevStudio",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nihitgupta2/DevStudio.git"
+  },
+  "author": {
+    "name": "Nihit Gupta",
+    "email": "nihitgupta.ng@outlook.com"
+  },
+  "license": "AGPL-3.0-or-later",
+  "keywords": [
+    "screen-recording",
+    "demo-automation",
+    "video-recording",
+    "audio-capture",
+    "multi-monitor",
+    "content-creation",
+    "mcp-server",
+    "python"
+  ],
+  "packages": [
+    {
+      "registry_type": "pypi",
+      "identifier": "devstudio-mcp",
+      "version": "1.0.0"
+    }
+  ],
+  "tools": [
+    {
+      "name": "start_recording",
+      "description": "Start a new recording session with screen, audio, and/or terminal capture"
+    },
+    {
+      "name": "stop_recording",
+      "description": "Stop an active recording session and retrieve output file paths"
+    },
+    {
+      "name": "capture_screen",
+      "description": "Take a single screenshot of any monitor"
+    },
+    {
+      "name": "list_active_sessions",
+      "description": "List all active recording sessions and their status"
+    },
+    {
+      "name": "mux_audio_video",
+      "description": "Combine separate audio and video files into a single MP4"
+    },
+    {
+      "name": "get_available_screens",
+      "description": "Get information about all available monitors and their properties"
+    }
+  ],
+  "capabilities": {
+    "screen_recording": true,
+    "audio_recording": true,
+    "multi_monitor_support": true,
+    "audio_video_muxing": true,
+    "screenshot_capture": true
+  }
+}
