@@ -6,9 +6,9 @@
 
 [![MCP Compatible](https://img.shields.io/badge/MCP-Compatible-blue)](https://modelcontextprotocol.io/)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
-[![Production Ready](https://img.shields.io/badge/production-ready-green.svg)](https://github.com/nihitgupta2/DevStudio)
-[![6 Tools Active](https://img.shields.io/badge/tools-6%20active-brightgreen)](https://github.com/nihitgupta2/DevStudio)
-[![10 Tools in Roadmap](https://img.shields.io/badge/roadmap-10%20tools-blue)](https://github.com/nihitgupta2/DevStudio)
+[![Production Ready](https://img.shields.io/badge/production-ready-green.svg)](https://github.com/nihitgupta2/devstudio)
+[![6 Tools Active](https://img.shields.io/badge/tools-6%20active-brightgreen)](https://github.com/nihitgupta2/devstudio)
+[![10 Tools in Roadmap](https://img.shields.io/badge/roadmap-10%20tools-blue)](https://github.com/nihitgupta2/devstudio)
 [![AGPL License](https://img.shields.io/badge/license-AGPL--3.0-blue.svg)](LICENSE)
 
 **Production-grade MCP server for screen recording and demo automation** - Phase 1 release featuring **6 professional recording tools** with multi-monitor support, audio/video muxing, and seamless integration for AI-driven demo workflows.
@@ -46,8 +46,8 @@ devstudio-mcp
 
 ```bash
 # Clone the repository
-git clone https://github.com/nihitgupta2/DevStudio.git
-cd DevStudio
+git clone https://github.com/nihitgupta2/devstudio.git
+cd devstudio
 
 # Install with uv (recommended)
 uv sync
@@ -438,7 +438,7 @@ muxed = await mux_audio_video({
 
 | Variable | Description | Required | Default |
 |----------|-------------|----------|---------|
-| `RECORDING_OUTPUT_DIR` | Output directory for recordings | No | `~/DevStudio/recordings` |
+| `RECORDING_OUTPUT_DIR` | Output directory for recordings | No | `~/devstudio/recordings` |
 | `MAX_RECORDING_DURATION` | Max recording length (seconds) | No | 3600 (1 hour) |
 | `RECORDING_QUALITY` | Quality setting (low, medium, high) | No | medium |
 | `RECORDING_FPS` | Frames per second | No | 30 |
@@ -449,7 +449,7 @@ muxed = await mux_audio_video({
 ```python
 # Default configuration
 recording:
-  output_dir: ~/DevStudio/recordings
+  output_dir: ~/devstudio/recordings
   max_duration: 3600  # 1 hour
   quality: medium
   fps: 30
@@ -560,7 +560,7 @@ We believe in open source while building a sustainable business. AGPL v3 ensures
 ## 📞 Support
 
 - 📧 Email: nihitgupta.ng@outlook.com
-- 🐛 Issues: [GitHub Issues](https://github.com/nihitgupta/DevStudio-MCP/issues)
+- 🐛 Issues: [GitHub Issues](https://github.com/nihitgupta2/devstudio/issues)
 - 💼 Commercial Licensing: nihitgupta.ng@outlook.com
 
 ---

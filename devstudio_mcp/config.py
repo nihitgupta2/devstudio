@@ -47,7 +47,7 @@ class ServerConfig(BaseModel):
 class RecordingConfig(BaseModel):
     """Recording configuration settings."""
 
-    output_dir: str = str(Path.home() / "DevStudio" / "recordings")
+    output_dir: str = str(Path.home() / "devstudio" / "recordings")
     max_duration: int = Field(3600, ge=30, le=7200)  # 30 seconds to 2 hours
     formats: List[str] = ["mp4", "webm"]
     quality: Literal["low", "medium", "high"] = "medium"
@@ -150,7 +150,7 @@ class Settings(BaseSettings):
                 debug=os.getenv("DEBUG", "false").lower() == "true",
             ),
             recording=RecordingConfig(
-                output_dir=os.getenv("RECORDING_OUTPUT_DIR", str(Path.home() / "DevStudio" / "recordings")),
+                output_dir=os.getenv("RECORDING_OUTPUT_DIR", str(Path.home() / "devstudio" / "recordings")),
                 max_duration=int(os.getenv("MAX_RECORDING_DURATION", "3600")),
                 formats=os.getenv("RECORDING_FORMATS", "mp4,webm").split(","),
                 quality=os.getenv("RECORDING_QUALITY", "medium"),

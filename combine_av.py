@@ -19,8 +19,10 @@ import sys
 from pathlib import Path
 
 
-def find_recording_files(recordings_dir: str = r"C:\Users\hp\DevStudio\recordings") -> tuple[Path, Path]:
+def find_recording_files(recordings_dir: str | None = None) -> tuple[Path, Path]:
     """Find the most recent screen and audio recording files."""
+    if recordings_dir is None:
+        recordings_dir = str(Path.home() / "devstudio" / "recordings")
     recordings_path = Path(recordings_dir)
 
     if not recordings_path.exists():
