@@ -102,7 +102,7 @@ Add to `claude_desktop_config.json`:
       "command": "uvx",
       "args": ["devstudio-mcp"],
       "env": {
-        "RECORDING_OUTPUT_DIR": "~/DevStudio/recordings"
+        "RECORDING_OUTPUT_DIR": "~/devstudio/recordings"
       }
     }
   }
@@ -137,7 +137,7 @@ Add to Cursor's MCP configuration file:
       "command": "uvx",
       "args": ["devstudio-mcp"],
       "env": {
-        "RECORDING_OUTPUT_DIR": "~/DevStudio/recordings"
+        "RECORDING_OUTPUT_DIR": "~/devstudio/recordings"
       }
     }
   }
@@ -165,7 +165,7 @@ DevStudio MCP supports the following environment variables for customization:
 
 | Variable | Description | Default |
 |----------|-------------|---------|
-| `RECORDING_OUTPUT_DIR` | Output directory for recordings | `~/DevStudio/recordings` |
+| `RECORDING_OUTPUT_DIR` | Output directory for recordings | `~/devstudio/recordings` |
 | `MAX_RECORDING_DURATION` | Max recording length in seconds | `3600` (1 hour) |
 | `RECORDING_QUALITY` | Quality setting (low, medium, high) | `medium` |
 | `RECORDING_FPS` | Frames per second | `30` |
@@ -243,7 +243,7 @@ pip install devstudio-mcp
 ```json
 {
   "env": {
-    "RECORDING_OUTPUT_DIR": "C:/Users/YourUsername/DevStudio"
+    "RECORDING_OUTPUT_DIR": "C:/Users/YourUsername/devstudio"
   }
 }
 ```
@@ -275,9 +275,9 @@ No manual dependency installation required!
 
 ## Getting Help
 
-- **Issues**: https://github.com/nihitgupta2/DevStudio/issues
+- **Issues**: https://github.com/nihitgupta2/devstudio/issues
 - **Email**: nihitgupta.ng@outlook.com
-- **Documentation**: https://github.com/nihitgupta2/DevStudio#readme
+- **Documentation**: https://github.com/nihitgupta2/devstudio#readme
 
 ## Quick Start Example
 
