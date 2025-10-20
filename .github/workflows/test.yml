@@ -2,15 +2,9 @@ name: Test
 
 on:
   push:
-    branches: [main, feat/marketplace-integrations]
-    paths:
-      - 'devstudio_mcp/**'
-      - 'tests/**'
-      - 'pyproject.toml'
-      - 'uv.lock'
-      - '.github/workflows/**'
-  pull_request:
-  workflow_dispatch:
+    branches: [main]  # Only run on main after merge
+  pull_request:       # Run on all PRs to validate before merge
+  workflow_dispatch:  # Manual trigger for testing
 
 jobs:
   test:
