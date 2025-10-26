@@ -6,6 +6,8 @@
 
 [![MCP Compatible](https://img.shields.io/badge/MCP-Compatible-blue)](https://modelcontextprotocol.io/)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![PyPI](https://img.shields.io/badge/PyPI-devstudio--mcp-blue)](https://pypi.org/project/devstudio-mcp/)
+[![Claude Code Plugin](https://img.shields.io/badge/Claude%20Code-Plugin-purple)](https://github.com/nihitgupta2/devstudio)
 [![Production Ready](https://img.shields.io/badge/production-ready-green.svg)](https://github.com/nihitgupta2/devstudio)
 [![6 Tools Active](https://img.shields.io/badge/tools-6%20active-brightgreen)](https://github.com/nihitgupta2/devstudio)
 [![10 Tools in Roadmap](https://img.shields.io/badge/roadmap-10%20tools-blue)](https://github.com/nihitgupta2/devstudio)
@@ -57,6 +59,34 @@ pip install -e .
 
 # Run the server
 devstudio-mcp
+```
+
+### 🎯 Claude Code Plugin Installation
+
+**One-Command Install** (Recommended for Claude Code users):
+
+```bash
+/plugin marketplace add nihitgupta2/devstudio
+```
+
+This automatically:
+- ✅ Configures DevStudio MCP in Claude Code
+- ✅ Installs via uvx (zero-installation method)
+- ✅ Enables all 6 recording tools instantly
+
+**Manual Configuration** (Alternative):
+
+Add to your Claude Code MCP settings:
+
+```json
+{
+  "mcpServers": {
+    "devstudio": {
+      "command": "uvx",
+      "args": ["devstudio-mcp"]
+    }
+  }
+}
 ```
 
 **Note:** FFmpeg is bundled with PyAV - no separate installation required! The package includes everything needed for professional video encoding.
