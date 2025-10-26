@@ -2,6 +2,8 @@
 
 This guide helps AI assistants like Claude, Cline, and other MCP clients install and configure DevStudio MCP server.
 
+**Official Package**: [devstudio-mcp on PyPI](https://pypi.org/project/devstudio-mcp/)
+
 ## Quick Install (Recommended)
 
 The fastest way to use DevStudio MCP is with `uvx` (zero installation required):
@@ -10,7 +12,7 @@ The fastest way to use DevStudio MCP is with `uvx` (zero installation required):
 uvx devstudio-mcp
 ```
 
-This command automatically downloads, installs, and runs the server without any permanent installation.
+This command automatically downloads, installs, and runs the server from PyPI without any permanent installation.
 
 ## Installation Methods
 
@@ -40,7 +42,7 @@ uvx devstudio-mcp
 **Best for**: Development, customization, local projects
 
 ```bash
-# Install the package
+# Install from PyPI: https://pypi.org/project/devstudio-mcp/
 pip install devstudio-mcp
 
 # Run as Python module
@@ -223,9 +225,13 @@ pip install uv
 
 ### Issue: "Module not found: devstudio_mcp"
 
-**Solution**: Install directly with pip:
+**Solution**: Install directly from PyPI:
 ```bash
+# Official package: https://pypi.org/project/devstudio-mcp/
 pip install devstudio-mcp
+
+# Verify installation
+pip show devstudio-mcp
 ```
 
 ### Issue: FFmpeg errors
@@ -237,13 +243,54 @@ pip uninstall devstudio-mcp av pyav -y
 pip install devstudio-mcp
 ```
 
-### Issue: Permission errors on Windows
+### Issue: Permission errors on Windows (pywin32)
 
-**Solution**: Run your MCP client or terminal as Administrator, or change the output directory:
+**Solution 1**: Install with `--user` flag to avoid admin requirements:
+```powershell
+pip install --user devstudio-mcp
+```
+
+**Solution 2**: Use uvx instead (bypasses system installation):
+```powershell
+uvx devstudio-mcp
+```
+
+**Solution 3**: Run terminal as Administrator or change output directory:
 ```json
 {
   "env": {
     "RECORDING_OUTPUT_DIR": "C:/Users/YourUsername/devstudio"
+  }
+}
+```
+
+### Issue: PowerShell command chaining fails
+
+**Solution**: In PowerShell, use `;` instead of `&&`:
+```powershell
+# CORRECT
+cd devstudio; pip install -e .
+
+# WRONG (will fail in PowerShell)
+cd devstudio && pip install -e .
+```
+
+### Issue: "devstudio-mcp: command not found" after pip install
+
+**Solution**: Run as Python module instead:
+```powershell
+# Use module execution
+python -m devstudio_mcp.server
+```
+
+Or update MCP config:
+```json
+{
+  "mcpServers": {
+    "devstudio": {
+      "command": "python",
+      "args": ["-m", "devstudio_mcp.server"]
+    }
   }
 }
 ```

@@ -43,16 +43,15 @@
       "mcpServers": [
         {
           "name": "devstudio",
-          "command": "python",
-          "args": [
-            "-m",
-            "devstudio_mcp.server"
-          ],
+          "command": "uvx",
+          "args": ["devstudio-mcp"],
           "env": {
             "RECORDING_OUTPUT_DIR": "~/devstudio/recordings"
           }
         }
-      ]
+      ],
+      "pypi": "devstudio-mcp",
+      "pypiUrl": "https://pypi.org/project/devstudio-mcp/"
     }
   ]
 }
